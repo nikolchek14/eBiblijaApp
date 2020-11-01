@@ -3,22 +3,79 @@
   "version": "1.0.0",
   "description": "Electron wrapper for a html Macedonian bible",
   "main": "main.js",
+  "homepage": "./",
+  "license": "free",
+  "author": "Nikolche Kolevski",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nikolchek14/eBiblijaApp.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/nikolchek14/eBiblijaApp/issues"
   },
-  "homepage": "https://github.com/nikolchek14/eBiblijaApp#readme",
   "devDependencies": {
-    "electron": "^10.1.5"
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.electron.eBiblijaApp",
+    "compression": "normal",
+    "asar": true,
+    "extends": null,
+    "files": [
+      "main.js",
+      "build/**/*",
+      "node_modules/**/*",
+      "src/regionsApp/r_icon.png"
+    ],
+    "linux": {
+      "target": "zip"
+    },
+    "win": {
+      "target": "portable"
+    }
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "eBiblijaApp"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
