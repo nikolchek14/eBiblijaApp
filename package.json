@@ -1,0 +1,20 @@
+{
+  "name": "eBiblijaApp",
+  "version": "1.0.0",
+  "description": "Electron wrapper for a html Macedonian bible",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolchek14/eBiblijaApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolchek14/eBiblijaApp/issues"
+  },
+  "homepage": "https://github.com/nikolchek14/eBiblijaApp#readme"
+}
