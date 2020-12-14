@@ -10,7 +10,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
     "dist": "electron-builder"
   },
   "repository": {
@@ -22,11 +21,6 @@
     "url": "https://github.com/nikolchek14/eBiblijaApp/issues"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.54",
-    "@electron-forge/maker-deb": "^6.0.0-beta.54",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
-    "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "^10.1.5",
     "electron-builder": "^22.9.1"
   },
@@ -42,41 +36,16 @@
       "main.js",
       "index.html",
       "build/**/*",
-      "node_modules/**/*",
-      "src/regionsApp/r_icon.png"
+      "node_modules/**/*"
     ],
     "linux": {
-      "target": "zip"
+      "target": "AppImage"
     },
     "win": {
-      "target": "portable"
+      "target": "portable",
+      "icon": "bbl.png"
     }
   },
   "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "eBiblijaApp"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
   }
 }
